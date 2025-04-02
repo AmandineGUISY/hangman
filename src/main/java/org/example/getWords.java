@@ -7,14 +7,13 @@ import java.util.List;
 public class getWords {
     public static List<String> wordlist;
 
-    public static List<String> words() {
+    public static List<String> words(String path) {
         wordlist = new ArrayList<>();
         try {
-            String filePath = getWords.class.getClassLoader().getResource("words.txt").getPath();
-            List<String> words = Files.readAllLines(Paths.get(filePath));
+            List<String> words = Files.readAllLines(Paths.get(path));
             wordlist.addAll(words);
-        } catch (Exception e) {
-            System.err.println("Erreur lors de la lecture du fichier: " + e.getMessage());
+        } catch (Exception error) {
+            System.err.println("Error reading the file :" + error.getMessage());
         }
         return wordlist;
     }
