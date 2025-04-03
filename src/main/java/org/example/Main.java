@@ -19,7 +19,9 @@ public class Main {
         while(error < 6 && !Verify.isWin(words.get(level), tried)) {
 
             hangman.hangman(error);
+            hangman.hangmanWord(words.get(level), tried);
             hangman.availableLetters(tried, alphabet);
+
             System.out.print("Choisi une lettre : ");
             letter = scanner.nextLine().trim().toUpperCase();
 
@@ -36,6 +38,7 @@ public class Main {
         hangman.hangman(error);
 
         if (Verify.isWin(words.get(level), tried)) {
+            hangman.hangmanWord(words.get(level), tried);
             System.out.println("Bien joué! Tu as gagné!");
         }
     }
