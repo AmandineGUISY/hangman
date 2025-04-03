@@ -16,7 +16,7 @@ public class Main {
         List<String> words = getWords.words(path);
         Hangman hangman = new Hangman();
 
-        while(error < 6 || Verify.isWin(words.get(level), tried)) {
+        while(error < 6 && !Verify.isWin(words.get(level), tried)) {
 
             hangman.hangman(error);
             System.out.print("Choisi une lettre : ");
@@ -32,8 +32,9 @@ public class Main {
             System.out.println(words.get(level));
 
         }
+        if (Verify.isWin(words.get(level), tried)) {
+            System.out.println("Bien joué! Tu as gagné!");
+        }
         hangman.hangman(error);
-
-
     }
 }
