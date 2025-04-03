@@ -23,4 +23,14 @@ public class Verify {
         }
         return errors + 1;
     }
+
+    public static boolean isWin(String word, String tried) {
+        word = word.toUpperCase();
+        for(int i = 0; i < word.length(); i++) {
+            if(tried.indexOf(word.charAt(i)) == -1) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
