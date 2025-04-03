@@ -76,4 +76,20 @@ public class Hangman {
                 System.out.println("Error");
         }
     }
+
+    public void availableLetters (String tried, String alphabet) {
+        for(int i = 0; i < alphabet.length(); i++) {
+            if(tried.indexOf(alphabet.charAt(i)) == 0) {
+                System.out.print(" ");
+            }
+            else {
+                System.out.print(alphabet.charAt(i) + " ");
+            }
+            if (i == 8 || i == 17 || i == 25) {System.out.println();}
+        }
+
+        if (!tried.isEmpty()) {
+            System.out.println("\nLettres essayées: " + tried);
+        }
+    }
 }
