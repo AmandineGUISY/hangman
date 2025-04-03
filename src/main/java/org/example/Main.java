@@ -8,7 +8,7 @@ public class Main {
         String path = "src/main/resources/words.txt";
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String tried = "";
-        String letter = "";
+        String letter;
         int level = 1;
         int error = 0;
 
@@ -19,6 +19,7 @@ public class Main {
         while(error < 6 && !Verify.isWin(words.get(level), tried)) {
 
             hangman.hangman(error);
+            hangman.availableLetters(tried, alphabet);
             System.out.print("Choisi une lettre : ");
             letter = scanner.nextLine().trim().toUpperCase();
 
@@ -32,9 +33,10 @@ public class Main {
             System.out.println(words.get(level));
 
         }
+        hangman.hangman(error);
+
         if (Verify.isWin(words.get(level), tried)) {
             System.out.println("Bien joué! Tu as gagné!");
         }
-        hangman.hangman(error);
     }
 }
