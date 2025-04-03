@@ -16,4 +16,11 @@ public class Verify {
         }
         return 0;
     }
+
+    public static int errors(String letter, String word, int errors) {
+        if(word.toUpperCase().contains(letter)) {
+            return errors;
+        }
+        return errors + 1;
+    }
 }
