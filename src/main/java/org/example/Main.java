@@ -7,25 +7,24 @@ public class Main {
     public static void main(String[] args) {
         String path = "src/main/resources/words.txt";
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String found = "";
+        String tried = "A";
+        String letter = "";
         int level = 1;
+        int error = 0;
 
         Scanner scanner = new Scanner(System.in);
         List<String> words = getWords.words(path);
         Hangman hangman = new Hangman();
-        hangman.hangman(0);
-        hangman.hangman(1);
-        hangman.hangman(2);
-        hangman.hangman(3);
-        hangman.hangman(4);
-        hangman.hangman(5);
-        hangman.hangman(6);
 
-        while(level < words.size() + 1) {
-            level++;
+        while(error < 6) {
+            hangman.hangman(error);
+            System.out.print("Choisi une lettre : ");
+            letter = scanner.nextLine().trim().toUpperCase();
+            while (Verify.verify(letter, tried, alphabet) == 1) {
+                System.out.print("Lettre invalide. Réessaie : ");
+                letter = scanner.nextLine().trim().toUpperCase();
+            }
         }
 
-        System.out.println("Nombre de mots chargés: " + words.get(1));
-        System.out.println("Liste des mots:" + words);
     }
 }
